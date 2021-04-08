@@ -176,7 +176,6 @@ Resources:
       RecordSets:
       - Name: us.happyfinancial.net.
         Type: A
-        TTL: '60'
         AliasTarget:
           HostedZoneId: !GetAtt 'LoadBalancer.CanonicalHostedZoneID'
           DNSName: !GetAtt 'LoadBalancer.DNSName'
