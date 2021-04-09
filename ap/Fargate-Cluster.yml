@@ -10,7 +10,7 @@ Parameters:
     Type: String
   Certificate:
     Type: String
-    Default: 'arn:aws:acm:ap-southeast-2:429646334739:certificate/c44486ab-62fc-4603-a196-246d7ebf1e7b' #ARN from Certificate Manager. Certificate needs to exist in the same region.
+    Default: 'arn:aws:acm:ap-northeast-1:429646334739:certificate/28ff68b3-c144-4cc0-9322-688738183ade' #ARN from Certificate Manager. Certificate needs to exist in the same region.
 
 Resources:
   Cluster:
