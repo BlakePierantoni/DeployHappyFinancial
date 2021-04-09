@@ -8,12 +8,14 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
+      - docker login -u tempuserfake123 -p docker123!
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
       - echo Build starting
+      - docker login -u tempuserfake123 -p docker123!
       - echo Building the Docker image...
       - docker build -t $ECR_REPOSITORY_URI:latest .
       - docker tag $ECR_REPOSITORY_URI:latest $ECR_REPOSITORY_URI:$IMAGE_TAG
