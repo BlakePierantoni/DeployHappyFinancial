@@ -232,8 +232,8 @@ Resources:
       ResourceId: !Join ['/', [service, !Ref Cluster, !GetAtt [ECSService, Name]]]
       ServiceNamespace: ecs
       ScalableDimension: ecs:service:DesiredCount
-      MinCapacity: 1
-      MaxCapacity: 5
+      MinCapacity: 2
+      MaxCapacity: 6
   ScalingPolicy:
     Type: AWS::ApplicationAutoScaling::ScalingPolicy
     Properties:
@@ -243,6 +243,6 @@ Resources:
       TargetTrackingScalingPolicyConfiguration:
         PredefinedMetricSpecification:
           PredefinedMetricType: ECSServiceAverageCPUUtilization
-        TargetValue: 75.0 #75% CPU Utilization
+        TargetValue: 60.0 #75% CPU Utilization
         ScaleInCooldown: 30 #Time in seconds
         ScaleOutCooldown: 30 #Time in seconds
